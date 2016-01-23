@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Store List</string>
+    <string name="base_url">http://sandbox.bottlerocketapps.com/</string>
 </resources>
