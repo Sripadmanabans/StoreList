@@ -1,5 +1,6 @@
 package com.sripad.storelist.response;
 
+import com.google.gson.annotations.SerializedName;
 import com.sripad.storelist.response.stores.Store;
 
 import java.util.List;
@@ -10,5 +11,7 @@ import java.util.List;
  */
 public class APIResponse {
 
+    @SerializedName("stores")
     private List<Store> stores;
+
 }
