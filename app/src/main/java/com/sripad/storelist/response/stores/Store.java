@@ -38,4 +38,31 @@ public class Store {
     @SerializedName("longitude")
     private double longitude;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getStoreLogoUrl() {
+        return storeLogoUrl;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 }

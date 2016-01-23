@@ -14,4 +14,7 @@ public class APIResponse {
     @SerializedName("stores")
     private List<Store> stores;
 
+    public List<Store> getStores() {
+        return stores;
+    }
 }
