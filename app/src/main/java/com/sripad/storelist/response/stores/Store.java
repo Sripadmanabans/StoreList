@@ -37,5 +37,5 @@ public class Store {
 
     @SerializedName("longitude")
     private double longitude;
-    
+
 }

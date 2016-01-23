@@ -35,7 +35,7 @@ public class StoreActivity extends AppCompatActivity {
         call.enqueue(new Callback<APIResponse>() {
             @Override
             public void onResponse(Response<APIResponse> response) {
-                Log.d("TAG", response.body().getStores().get(0).getName());
+                Log.d("TAG", response.toString());
             }
 
             @Override
