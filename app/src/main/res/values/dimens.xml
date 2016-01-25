@@ -5,5 +5,8 @@
     <dimen name="dimension_48">48dp</dimen>
     <dimen name="dimension_64">64dp</dimen>
     <dimen name="dimension_256">256dp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_36">36sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
 
 </resources>
