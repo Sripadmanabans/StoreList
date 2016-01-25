@@ -22,6 +22,8 @@ import butterknife.ButterKnife;
  */
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHolder> {
 
+    private static OnRecycleItemClickListener onRecycleItemClickListener;
+
     private APIResponse response;
 
     public StoreAdapter(APIResponse response) {
@@ -82,7 +84,24 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
         public StoreViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(onRecycleItemClickListener != null) {
+                        onRecycleItemClickListener.onItemClick(v, getAdapterPosition());
+                    }
+                }
+            });
         }
+    }
+
+    public void setOnRecycleItemClickListener(OnRecycleItemClickListener onRecycleItemClickListener) {
+        StoreAdapter.onRecycleItemClickListener = onRecycleItemClickListener;
+    }
+
+    public interface OnRecycleItemClickListener {
+        void onItemClick(View view, int position);
     }
 
 }
