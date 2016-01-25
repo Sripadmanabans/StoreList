@@ -1,6 +1,7 @@
 package com.sripad.storelist.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sripad.storelist.R;
+import com.sripad.storelist.activities.DetailsActivity;
 import com.sripad.storelist.adapter.StoreAdapter;
 import com.sripad.storelist.api.StoresService;
 import com.sripad.storelist.response.APIResponse;
@@ -28,6 +30,8 @@ import retrofit2.Retrofit;
  * Created by Sripad on 1/25/2016.
  */
 public class StoreListFragment extends Fragment {
+
+    private StoreAdapter storeAdapter;
 
     @Bind(R.id.store_list)
     RecyclerView recyclerView;
@@ -54,8 +58,18 @@ public class StoreListFragment extends Fragment {
         Call<APIResponse> call = storesService.getStores();
         call.enqueue(new Callback<APIResponse>() {
             @Override
-            public void onResponse(Response<APIResponse> response) {
+            public void onResponse(final Response<APIResponse> response) {
                 Log.d("TAG", response.toString());
+                storeAdapter = new StoreAdapter(response.body());
+                storeAdapter.setOnRecycleItemClickListener(new StoreAdapter.OnRecycleItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                        intent.putExtra("List", response.body());
+                        intent.putExtra("Position", position);
+                        startActivity(intent);
+                    }
+                });
                 recyclerView.setAdapter(new StoreAdapter(response.body()));
             }
 

@@ -23,11 +23,7 @@ public class StoreActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.add(R.id.fragment_container, new StoreListFragment(),
                 StoreListFragment.class.getSimpleName());
